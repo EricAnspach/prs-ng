@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './core/menu/menu.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
+import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     MenuComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    VendorListComponent
     
   ],
   imports: [
