@@ -10,6 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './core/menu/menu.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
+import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
+import { ProductListComponent } from './feature/product/product-list/product-list.component';
+import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
+import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.co
     UserListComponent,
     MenuComponent,
     UserCreateComponent,
-    VendorListComponent
+    VendorListComponent,
+    VendorCreateComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    UserEditComponent,
+    UserDetailComponent
     
   ],
   imports: [
