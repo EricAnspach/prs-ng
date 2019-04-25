@@ -23,9 +23,10 @@
     <td>{{vendor.name}}</td>
     <td>{{vendor.phoneNumber}}</td>
     <td>{{vendor.email}}</td>
-    <td>{{vendor.isPreapproved?"P-A":""}}</td>
+    <td>{{vendor.isPreapproved?"P-A":"No"}}</td>
     <td class='actions'>
-      <img src='assets/details.png' width='20' height='20' title='Detail'>
+      <a routerLink='/vendor/detail/{{vendor.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+      <a routerLink='/vendor/edit/{{vendor.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
     </td>
   </tr> 
 </table>

@@ -1,3 +1,5 @@
+import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
+import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
@@ -18,6 +20,9 @@ const routes: Routes = [
   {path:'user/remove/:id', component: UserDetailComponent},
   {path:'vendor/list', component: VendorListComponent},
   {path:'vendor/create', component: VendorCreateComponent},
+  {path:'vendor/edit/:id', component: VendorEditComponent},
+  {path:'vendor/detail/:id', component: VendorDetailComponent},
+  {path:'vendor/remove/:id', component: VendorDetailComponent},
   {path:'product/list', component: ProductListComponent},
   {path:'product/create', component: ProductCreateComponent},
   
