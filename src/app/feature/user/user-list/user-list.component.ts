@@ -12,6 +12,8 @@ export class UserListComponent implements OnInit {
   jr: JsonResponse;
   users: User[];
   title: string = "User List";
+  sortCriteria: string = "username";
+  sortOrder: string = "asc"; // ascending -- or can use descending
 
   constructor(private userSvc: UserService) { }
 
@@ -21,5 +23,14 @@ export class UserListComponent implements OnInit {
         this.users = this.jr.data as User[];
         console.log(this.users);
       });
+  }
+
+  sortBy(column: string): void {
+    if(this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortCriteria = column;
+      this.sortOrder = 'asc';
+    }
   }
 }
