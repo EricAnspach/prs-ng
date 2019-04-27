@@ -1,3 +1,7 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { JsonResponse } from './../../../model/json-response.class';
+import { PurchaseRequestService } from './../../../service/purchase-request.service';
+import { PurchaseRequest } from './../../../model/purchase-request.class';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseRequestEditComponent implements OnInit {
 
-  constructor() { }
+  title: string = 'PurchaseRequest Edit';
+
+  jr: JsonResponse;
+  id: string;
+  resp: any;
+
+  purchaserequest: PurchaseRequest;
+
+  constructor(private purchaserequestSvc: PurchaseRequestService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(parms => this.id = parms['id']);
+    console.log("purchaserequest edit ngOnInit", "id = " + this.id);
+    this.purchaserequestSvc.get(this.id)
+      .subscribe(jrresp => {
+        this.jr = jrresp;
+        console.log("1");
+        this.purchaserequest = this.jr.data as PurchaseRequest; 
+        console.log("purchaserequest",this.purchaserequest);
+      });
+  }
+
+  edit () {
+    this.purchaserequestSvc.edit(this.purchaserequest)
+      .subscribe(resp => {
+        this.resp = resp;
+        this.router.navigate(['/purchaserequest/list']);
+    });
   }
 
 }

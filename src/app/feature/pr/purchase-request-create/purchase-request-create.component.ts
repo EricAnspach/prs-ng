@@ -1,3 +1,7 @@
+import { User } from './../../../model/user.class';
+import { PurchaseRequestService } from './../../../service/purchase-request.service';
+import { PurchaseRequest } from './../../../model/purchase-request.class';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseRequestCreateComponent implements OnInit {
 
-  constructor() { }
-
+  title: string = "Purchase Request Create";
+  resp: any;
+  purchaserequest: PurchaseRequest = new PurchaseRequest(0, new User(), '','','','','',0,'','');
+ 
+  create () {
+    this.purchaseRequestSvc.create(this.purchaserequest)
+      .subscribe(resp => {
+        this.resp = resp;
+        this.router.navigate(['/purchaserequest/list']);
+    });
+  }
+ 
+  constructor(private purchaseRequestSvc: PurchaseRequestService,
+    private router: Router) { }
+ 
   ngOnInit() {
   }
 
