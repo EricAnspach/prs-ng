@@ -9,6 +9,7 @@ const url: string = 'http://localhost:8080/products/';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
 
   list(): Observable <JsonResponse> {

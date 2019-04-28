@@ -12,6 +12,7 @@ import { ProductListComponent } from './feature/product/product-list/product-lis
 import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
@@ -23,6 +24,7 @@ import { PurchaseRequestLineItemDetailComponent } from './feature/prli/purchase-
 
 const routes: Routes = [
   {path:'', redirectTo: '/user/list', pathMatch: 'full' },
+  {path:'user/login', component: UserLoginComponent},
   {path:'user/list', component: UserListComponent},
   {path:'user/create', component: UserCreateComponent},
   {path:'user/edit/:id', component: UserEditComponent},

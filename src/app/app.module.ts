@@ -32,6 +32,9 @@ import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-
 import { PurchaseRequestLineItemDetailComponent } from './feature/prli/purchase-request-line-item-detail/purchase-request-line-item-detail.component';
 import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
 import { SortPipe } from './pipe/sort.pipe';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { SystemService } from './service/system.service';
+import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,9 @@ import { SortPipe } from './pipe/sort.pipe';
     PurchaseRequestLineItemCreateComponent,
     PurchaseRequestLineItemDetailComponent,
     PurchaseRequestLineItemEditComponent,
-    SortPipe
+    SortPipe,
+    UserLoginComponent,
+    PurchaseRequestLinesComponent
     
   ],
   imports: [
@@ -71,7 +76,8 @@ import { SortPipe } from './pipe/sort.pipe';
     ProductService,
     VendorService,
     PurchaseRequestService,
-    PurchaseRequestLineItemService
+    PurchaseRequestLineItemService,
+    SystemService
   ],
   bootstrap: [AppComponent]
 })

@@ -11,6 +11,10 @@ const url: string = 'http://localhost:8080/users/';
 })
 
 export class UserService {
+  
+  login(user: User): Observable<JsonResponse> {
+    return this.http.post(url + "authenticate", user) as Observable<JsonResponse>;
+  }
 
   list(): Observable <JsonResponse> {
     return this.http.get(url) as Observable<JsonResponse>;

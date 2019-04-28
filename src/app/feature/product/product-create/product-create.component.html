@@ -8,9 +8,6 @@
    
     <div class="form-group row">
       <label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
-      <!-- <input [(ngModel)]='product.vendor' name = 'Vendor' type="text" class="form-control col-sm-6"
-        id="vendor" aria-describedby="vendorHelp" placeholder="Vendor">
-      <small id="vendorHelp" class="form-text text-muted col-sm-2">Vendor</small> -->
       <div class=' col-sm-6'>
 				<select [(ngModel)]='product.vendor' class='form-control' name='Vendor' id='vendor'>
 					<option *ngFor="let vendor of vendors" [ngValue]="vendor">{{vendor.name}}</option>
