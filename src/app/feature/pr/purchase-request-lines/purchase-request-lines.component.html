@@ -1,3 +1,60 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class = 'lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    <span><a routerLink='/purchaserequest/list'>
+          <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!purchaserequests'>Loading ...</p>
+<table class="table table-sm" *ngIf='purchaserequests'>
+  <tr>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"><u>Id</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Description')"><u>Description</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Status')"><u>Status</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Total')"><u>Total</u></a></th>
+  </tr>
+  <tr>
+    <td>{{purchaserequest.id}}</td>
+    <td>{{purchaserequest.description}}</td>
+    <td>{{purchaserequest.status}}</td>
+    <td>{{purchaserequest.total}}</td>
+  </tr> 
+</table>
+
+<div class='component-content'>
+  <div class = 'lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    <span><a routerLink='/purchaserequestlineitem/create'>
+          <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!purchaseRequestLineItems'>Loading ...</p>
+<table class="table table-sm" *ngIf='purchaseRequestLineItems'>
+  <tr>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('id')"><u>Id</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('product.name')"><u>Product</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('quantity')"><u>Quantity</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('price')"><u>Price</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('lineTotal')"><u>Line Total</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" ><u>Action</u></a></th>
+  </tr>
+  <tr *ngFor='let prli of purchaseRequestLineItems | sort:sortCriteria:sortOrder'>
+    <td>{{prli.id}}</td>
+    <td>{{prli.product.name}}</td>
+    <td>{{prli.quantity}}</td>
+    <td>{{prli.product.price}}</td>
+    <td>{{lineTotal}}</td>
+    <td class='actions'>
+      <a routerLink='/purchaserequestlineitem/detail/{{prli.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+      <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+    </td>
+  </tr> 
+</table>
+
 <p>
   purchase-request-lines works!
 </p>

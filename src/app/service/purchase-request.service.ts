@@ -33,5 +33,7 @@ export class PurchaseRequestService {
     return this.http.delete(url+id) as Observable<JsonResponse>;
   }
 
+  // get 
+
   constructor(private http: HttpClient) { }
 }

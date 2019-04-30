@@ -1,3 +1,7 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { JsonResponse } from './../../../model/json-response.class';
+import { PurchaseRequestLineItemService } from './../../../service/purchase-request-line-item.service';
+import { PurchaseRequestLineItem } from './../../../model/purchase-request-line-item.class';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseRequestLineItemEditComponent implements OnInit {
 
-  constructor() { }
+  title: string = 'PurchaseRequestLineItem Edit';
+
+  jr: JsonResponse;
+  id: string;
+  resp: any;
+
+  purchaseRequestLineItem: PurchaseRequestLineItem;
+
+  constructor(private purchaseRequestLineItemSvc: PurchaseRequestLineItemService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(parms => this.id = parms['id']);
+    console.log("purchaseRequestLineItem edit ngOnInit", "id = " + this.id);
+    this.purchaseRequestLineItemSvc.get(this.id)
+      .subscribe(jrresp => {
+        this.jr = jrresp;
+        console.log("1");
+        this.purchaseRequestLineItem = this.jr.data as PurchaseRequestLineItem; 
+        console.log("purchaseRequestLineItem",this.purchaseRequestLineItem);
+      });
+  }
+
+  edit () {
+    this.purchaseRequestLineItemSvc.edit(this.purchaseRequestLineItem)
+      .subscribe(resp => {
+        this.resp = resp;
+        this.router.navigate(['/purchaseRequestLineItem/list']);
+    });
   }
 
 }
