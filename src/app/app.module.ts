@@ -1,3 +1,5 @@
+import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
+import { PurchaseRequestApproveComponent } from './feature/pr/purchase-request-approve/purchase-request-approve.component';
 import { PurchaseRequestLineItemService } from './service/purchase-request-line-item.service';
 import { PurchaseRequestService } from './service/purchase-request.service';
 import { VendorService } from './service/vendor.service';
@@ -35,8 +37,6 @@ import { SortPipe } from './pipe/sort.pipe';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 import { SystemService } from './service/system.service';
 import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
-import { PurchaseRequestReviewComponent } from './purchase-request-review/purchase-request-review.component';
-import { PurchaseRequestApproveComponent } from './purchase-request-approve/purchase-request-approve.component';
 
 @NgModule({
   declarations: [

@@ -1,3 +1,5 @@
+import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
+import { PurchaseRequestApproveComponent } from './feature/pr/purchase-request-approve/purchase-request-approve.component';
 import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
 import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-request-line-item-create/purchase-request-line-item-create.component';
 import { PurchaseRequestLineItemListComponent } from './feature/prli/purchase-request-line-item-list/purchase-request-line-item-list.component';
@@ -21,6 +23,7 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
 import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
 import { PurchaseRequestLineItemDetailComponent } from './feature/prli/purchase-request-line-item-detail/purchase-request-line-item-detail.component';
+import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/user/list', pathMatch: 'full' },
@@ -48,12 +51,15 @@ const routes: Routes = [
   {path:'purchaserequest/edit/:id', component: PurchaseRequestEditComponent},
   {path:'purchaserequest/detail/:id', component: PurchaseRequestDetailComponent},
   {path:'purchaserequest/remove/:id', component: PurchaseRequestDetailComponent},
+  {path:'purchaserequest/approve/:id', component: PurchaseRequestApproveComponent},
+  {path:'purchaserequest/review', component: PurchaseRequestReviewComponent},
+  {path:'purchaserequest/lines/:id', component: PurchaseRequestLinesComponent},
   
-  {path:'purchaserequestlineitem/list', component: PurchaseRequestLineItemListComponent},
+  // {path:'purchaserequestlineitem/list', component: PurchaseRequestLineItemListComponent},
   {path:'purchaserequestlineitem/create', component: PurchaseRequestLineItemCreateComponent},
   {path:'purchaserequestlineitem/edit/:id', component: PurchaseRequestLineItemEditComponent},
-  {path:'purchaserequestlineitem/detail/:id', component: PurchaseRequestLineItemDetailComponent},
-  {path:'purchaserequestlineitem/remove/:id', component: PurchaseRequestLineItemDetailComponent},
+  // {path:'purchaserequestlineitem/detail/:id', component: PurchaseRequestLineItemDetailComponent},
+  // {path:'purchaserequestlineitem/remove/:id', component: PurchaseRequestLineItemDetailComponent},
   
   {path:'**', component: UserListComponent}
   ];

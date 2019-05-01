@@ -1,3 +1,5 @@
+// THIS COMPONENT NOT USED
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

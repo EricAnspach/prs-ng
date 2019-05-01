@@ -29,9 +29,11 @@
       <td>Status</td><td>{{ purchaserequest.status }}</td>
     </tr>
     <tr>
+      <!-- Display total as $dollar amount -->
       <td>Total</td><td>{{ purchaserequest.total }}</td>
     </tr>
     <tr>
+      <!-- Display date only, not time -->
       <td>Submitted Date</td><td>{{ purchaserequest.submittedDate }}</td>
     </tr>
     <tr>
@@ -40,7 +42,7 @@
     <tr>
 	    <td colspan="2">
 	      <a routerLink='/purchaserequest/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-	      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+	      <button (click)="remove()" class='btn btn-danger' title='Delete'>Delete</button>
 	    </td>
     </tr>
   </table>

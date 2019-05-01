@@ -27,6 +27,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     if(this.sysSvc.data.user.loggedIn) {
+      // Use this line below to get user in other components
       this.user = this.sysSvc.data.user.instance;
       console.log("logged in user: ", this.user);
     } else {

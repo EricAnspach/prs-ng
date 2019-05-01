@@ -1,3 +1,5 @@
+// THIS COMPONENT NOT USED
+
 import { JsonResponse } from './../../../model/json-response.class';
 import { PurchaseRequestLineItemService } from './../../../service/purchase-request-line-item.service';
 import { PurchaseRequestLineItem } from './../../../model/purchase-request-line-item.class';

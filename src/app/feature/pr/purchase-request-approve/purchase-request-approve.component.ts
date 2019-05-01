@@ -6,15 +6,15 @@ import { JsonResponse } from './../../../model/json-response.class';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-purchase-request-lines',
-  templateUrl: './purchase-request-lines.component.html',
-  styleUrls: ['./purchase-request-lines.component.css']
+  selector: 'app-purchase-request-approve',
+  templateUrl: './purchase-request-approve.component.html',
+  styleUrls: ['./purchase-request-approve.component.css']
 })
-export class PurchaseRequestLinesComponent implements OnInit {
+export class PurchaseRequestApproveComponent implements OnInit {
 
   jr: JsonResponse;
   purchaserequests: PurchaseRequest[];
-  title1: string = "Purchase Request Line Items";
+  title1: string = "Purchase Request Approve/Reject";
   title2: string = "Lines";
 
   constructor(private purchaseRequestSvc: PurchaseRequestService) { }
@@ -30,6 +30,5 @@ export class PurchaseRequestLinesComponent implements OnInit {
   }
 
   // Get pr line items by purchase request id
-
 
 }

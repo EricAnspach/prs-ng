@@ -1,4 +1,7 @@
 <app-menu></app-menu>
+<!-- PAGE NEEDS TO DISPLAY SINGLE LINE OF PR INFO ABOVE,
+      AND LINES OF PRLIs OF THAT PR BELOW -->
+
 <div class='component-content'>
   <div class = 'lefthalf'>
     <span class='component-title'>[{{title1}}] </span>
@@ -23,9 +26,6 @@
 <div class='component-content'>
   <div class = 'lefthalf'>
     <span class='component-title'>[{{title2}}] </span>
-    <span><a routerLink='/purchaserequestlineitem/create'>
-          <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
-    </span>
   </div>
 </div>
 <table class="table table-sm">
@@ -44,17 +44,12 @@
     <td>{{prli.product.price}}</td>
     <td>{{lineTotal}}</td>
     <td class='actions'>
-      <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
       <a routerLink='/purchaserequestlineitem/detail/{{prli.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
-      <a routerLink='/purchaserequestlineitem/delete/{{prli.id}}'><img src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
-      <!-- <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button> -->
+      <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
     </td>
   </tr> 
 </table>
-<div class='form-group'>
-  <button (click)='submit-review()' class='btn btn-primary'>Submit for Review</button>
-</div>
 
 <p>
-  purchase-request-lines works!
+  purchase-request-approve works!
 </p>

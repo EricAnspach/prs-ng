@@ -6,22 +6,17 @@
   <p *ngIf='!purchaserequest'>Loading...</p>
 
 	<div *ngIf='purchaserequest'>
-		<!-- <div class="form-group row">
-			<label class='col-form-label col-sm-2' for="purchaserequestid">ID:</label>
-      <input [(ngModel)]='purchaserequest.id' name = 'ID' type="text" class="form-control col-sm-6"
-        id="purchaserequestid" aria-describedby="idHelp" placeholder="ID">
-			<small id="idHelp" class="form-text text-muted col-sm-2">Purchaserequest ID</small>
-		</div> -->
+		<!-- User Name should display logged in user, not input -->
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="prusername">User name:</label>
       <input [(ngModel)]='purchaserequest.user.username' name = 'UserName' type="text" class="form-control col-sm-6"
-        id="prusername" aria-describedby="unameHelp" placeholder="UserName">
-			<small id="unameHelp" class="form-text text-muted col-sm-2">Purchaserequest User Name</small>
+        id="prusername" aria-describedby="unameHelp" placeholder="User Name">
+			<small id="unameHelp" class="form-text text-muted col-sm-2">Purchase Request User Name</small>
 		</div>
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="description">Description:</label>
       <input [(ngModel)]='purchaserequest.description' name = 'Purchaserequestdescription' type="text" class="form-control col-sm-6"
-        id="description" aria-describedby="descriptionHelp" placeholder="Purchaserequestdescription">
+        id="description" aria-describedby="descriptionHelp" placeholder="Purchase Request Description">
 			<small id="descriptionHelp" class="form-text text-muted col-sm-2">Description</small>
 		</div>
 		<div class="form-group row">
@@ -32,46 +27,19 @@
 		</div>
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="dateNeeded">Date Needed:</label>
-      <input [(ngModel)]='purchaserequest.dateNeeded' name = 'DateNeeded' type="text" class="form-control col-sm-6"
-        id="dateNeeded" aria-describedby="dateNeededHelp" placeholder="DateNeeded">
+      <input [(ngModel)]='purchaserequest.dateNeeded' name = 'DateNeeded' type="date" class="form-control col-sm-6"
+        id="dateNeeded" aria-describedby="dateNeededHelp" placeholder="Date Needed">
 			<small id="dateNeededHelp" class="form-text text-muted col-sm-2">Date Needed</small>
 		</div>
+		<!-- Delivery Mode should be a dropdown - Mail or Pickup -->
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="deliveryMode">Delivery Mode:</label>
       <input [(ngModel)]='purchaserequest.deliveryMode' name = 'DeliveryMode' type="text" class="form-control col-sm-6"
-        id="deliveryMode" aria-describedby="deliveryModeHelp" placeholder="DeliveryMode">
+        id="deliveryMode" aria-describedby="deliveryModeHelp" placeholder="Delivery Mode">
 			<small id="deliveryModeHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
 		</div>
-		<!-- <div class="form-group row">
-			<label class='col-form-label col-sm-2' for="status">Status:</label>
-      <input [(ngModel)]='purchaserequest.status' name = 'Status' type="text" class="form-control col-sm-6"
-        id="status" aria-describedby="statusHelp" placeholder="Status">
-			<small id="statusHelp" class="form-text text-muted col-sm-2">Status</small>
-		</div> -->
-		<!-- <div class="form-group row">
-			<label class='col-form-label col-sm-2' for="total">Total:</label>
-      <input [(ngModel)]='purchaserequest.total' name = 'Total' type="text" class="form-control col-sm-6"
-        id="total" aria-describedby="totalHelp" placeholder="Total">
-			<small id="totalHelp" class="form-text text-muted col-sm-2">Total</small>
-		</div> -->
-		<!-- <div class="form-group row">
-			<label class='col-form-label col-sm-2' for="submittedDate">Submitted Date:</label>
-      <input [(ngModel)]='purchaserequest.submittedDate' name = 'SubmittedDate' type="text" class="form-control col-sm-6"
-        id="submittedDate" aria-describedby="submittedDateHelp" placeholder="SubmittedDate">
-			<small id="submittedDateHelp" class="form-text text-muted col-sm-2">Submitted Date</small>
-		</div> -->
-		<!-- <div class="form-group row">
-			<label class='col-form-label col-sm-2' for="reasonForRejection">Reason For Rejection:</label>
-      <input [(ngModel)]='purchaserequest.reasonForRejection' name = 'ReasonForRejection' type="text" class="form-control col-sm-6"
-        id="reasonForRejection" aria-describedby="reasonForRejectionHelp" placeholder="ReasonForRejection">
-			<small id="reasonForRejectionHelp" class="form-text text-muted col-sm-2">Reason For Rejection</small>
-    </div> -->
     <div class='form-group'>
       <button (click)='create()' class='btn btn-primary'>Create</button>
     </div>
   </div>
 </div>
-
-<p>
-  purchase-request-create works!
-</p>

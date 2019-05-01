@@ -33,7 +33,7 @@ export class PurchaseRequestService {
     return this.http.delete(url+id) as Observable<JsonResponse>;
   }
 
-  // get 
+  // get purchase requests to review, but not belonging to reviewer
 
   constructor(private http: HttpClient) { }
 }
