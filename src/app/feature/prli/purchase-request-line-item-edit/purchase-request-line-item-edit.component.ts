@@ -28,15 +28,13 @@ export class PurchaseRequestLineItemEditComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.productSvc.list()
-    .subscribe(jresp => {
+    this.productSvc.list().subscribe(jresp => {
       this.jr = jresp as JsonResponse;
       this.products = this.jr.data as Product[];
     });
     this.route.params.subscribe(parms => this.id = parms['id']);
     console.log("purchaseRequestLineItem edit ngOnInit", "id = " + this.id);
-    this.prliSvc.get(this.id)
-      .subscribe(jrresp => {
+    this.prliSvc.get(this.id).subscribe(jrresp => {
         this.jr = jrresp;
         console.log("1");
         this.purchaseRequestLineItem = this.jr.data as PurchaseRequestLineItem; 

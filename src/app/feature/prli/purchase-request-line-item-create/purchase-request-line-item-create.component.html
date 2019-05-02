@@ -8,9 +8,9 @@
 		<div>
 			<div class="form-group row">
 				<label class='col-form-label col-sm-2' for="product">Product:</label>
-				<div class=' col-sm-6'>
+				<div class='col-sm-6'>
 						<select [(ngModel)]='purchaseRequestLineItem.product' class='form-control' name='Product' id='product'>
-							<option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+							<option *ngFor="let product of products" [ngValue]="product">{{ product.partNumber }}</option>
 						</select>
 					</div>
 			</div>

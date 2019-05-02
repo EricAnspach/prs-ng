@@ -10,7 +10,8 @@
 			<label class='col-form-label col-sm-2' for="product">Product:</label>
 			<div class=' col-sm-6'>
 					<select [(ngModel)]='purchaseRequestLineItem.product' class='form-control' name='Product' id='product'>
-						<option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+						<option *ngFor="let product of products" [ngValue]="product.name"
+						[selected]="product.name == purchaseRequestLineItem.product.name">{{product.name}}</option>
 					</select>
 				</div>
 		</div>

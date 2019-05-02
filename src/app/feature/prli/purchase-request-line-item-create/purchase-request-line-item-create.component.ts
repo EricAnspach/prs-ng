@@ -31,8 +31,15 @@ export class PurchaseRequestLineItemCreateComponent implements OnInit {
     private route: ActivatedRoute) { }
     
     ngOnInit() {
-      this.productSvc.list()
-      .subscribe(jresp => {
+      this.route.params.subscribe(parms => this.id = parms['id']);
+      console.log("purchaseRequestLineItem edit ngOnInit", "id = " + this.id);
+      this.prliSvc.get(this.id).subscribe(jresp => {
+        this.jr = jresp;
+        console.log("1");
+        this.purchaseRequestLineItem = this.jr.data as PurchaseRequestLineItem; 
+        console.log("purchaseRequestLineItem",this.purchaseRequestLineItem);
+      });
+      this.productSvc.list().subscribe(jresp => {
         this.jr = jresp as JsonResponse;
         this.products = this.jr.data as Product[];
       });
