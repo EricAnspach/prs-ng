@@ -12,7 +12,7 @@ export class UserListComponent implements OnInit {
   jr: JsonResponse;
   users: User[];
   title: string = "User List";
-  sortCriteria: string = "username";
+  sortCriteria: string = "userName";
   sortOrder: string = "asc"; // ascending -- or can use descending
 
   constructor(private userSvc: UserService) { }

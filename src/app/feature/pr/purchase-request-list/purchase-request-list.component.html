@@ -20,6 +20,7 @@
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Total')"><u>Total</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('SubmittedDate')"><u>Submitted Date</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('ReasonForRejection')"><u>Reason For Rejection</u></a></th>
+    <th class="table-secondary" width='90'>Action</th>
   </tr>
   <tr *ngFor='let purchaserequest of purchaserequests'>
     <td>{{purchaserequest.id}}</td>
@@ -35,6 +36,7 @@
     <td class='actions'>
       <a routerLink='/purchaserequest/detail/{{purchaserequest.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
       <a routerLink='/purchaserequest/edit/{{purchaserequest.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+      <a routerLink='/purchaserequest/lines/{{purchaserequest.id}}'><img src='assets/lines.png' width='20' height='20' title='Edit'></a>
     </td>
   </tr> 
 </table>

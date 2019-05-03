@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { PurchaseRequestLineItemService } from './../../../service/purchase-request-line-item.service';
 import { PurchaseRequestLineItem } from './../../../model/purchase-request-line-item.class';
 import { PurchaseRequestService } from './../../../service/purchase-request.service';
@@ -13,23 +14,34 @@ import { Component, OnInit } from '@angular/core';
 export class PurchaseRequestLinesComponent implements OnInit {
 
   jr: JsonResponse;
-  purchaserequests: PurchaseRequest[];
+  purchaserequest: PurchaseRequest;
+  prlis: PurchaseRequestLineItem[];
   title1: string = "Purchase Request Line Items";
   title2: string = "Lines";
 
-  constructor(private purchaseRequestSvc: PurchaseRequestService) { }
-
-  // Get one purchase request by id
+  constructor(private purchaseRequestSvc: PurchaseRequestService,
+              private prliSvc: PurchaseRequestLineItemService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.purchaseRequestSvc.list().subscribe(jresp => {
-        this.jr = jresp;
-        this.purchaserequests = this.jr.data as PurchaseRequest[];
-        console.log(this.purchaserequests);
+    this.route.params
+      .subscribe(parms => {
+        let id = parms["id"];
+        this.get(id);
       });
   }
-
-  // Get pr line items by purchase request id
-
-
+    
+  get(id: string) {
+    this.purchaseRequestSvc.get(id).subscribe(jsresp => {
+      this.jr = jsresp;
+      this.purchaserequest = this.jr.data as PurchaseRequest;
+      console.log(this.purchaserequest);
+    });
+    this.prliSvc.getLines(id).subscribe(jresp2 => {
+      this.jr = jresp2;
+      this.prlis = this.jr.data as PurchaseRequestLineItem[];
+      console.log(this.prlis);
+    });
+  }
 }

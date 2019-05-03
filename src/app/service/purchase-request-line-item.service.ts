@@ -24,8 +24,12 @@ export class PurchaseRequestLineItemService {
     console.log("purchaseRequestLineItemsvc.get..  id="+id);
     return this.http.get(url+id) as Observable<JsonResponse>;
   }
-
+  
   // get prlis by prid for the pr lines component
+  getLines(id: string): Observable<JsonResponse> {
+    console.log("purchaseRequestLineItemsvc.get Lines..  PR id="+id);
+    return this.http.get(url + "lines-for-pr/" + id) as Observable<JsonResponse>;
+  }
 
   edit(purchaseRequestLineItem: PurchaseRequestLineItem): Observable<any> {
     return this.http.put(url, purchaseRequestLineItem) as Observable<any>;

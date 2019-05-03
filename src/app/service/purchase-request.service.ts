@@ -15,6 +15,10 @@ export class PurchaseRequestService {
     return this.http.get(url) as Observable<JsonResponse>;
   }
 
+  listreview(id: string): Observable <JsonResponse> {
+    return this.http.get(url + "list-review/" + id) as Observable<JsonResponse>;
+  }
+
   create(purchaseRequest: PurchaseRequest): Observable<any> {
     console.log("purchaseRequestsvc.create...");
     return this.http.post(url, purchaseRequest) as Observable<any>;

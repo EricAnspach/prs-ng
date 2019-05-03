@@ -7,10 +7,10 @@
 </div>
 <table class="table table-sm">
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"><u>Id</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Description')"><u>Description</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Status')"><u>Status</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Total')"><u>Total</u></a></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Id</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Description</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Status</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Total</u></th>
   </tr>
   <tr>
     <td>{{purchaserequest.id}}</td>
@@ -30,19 +30,19 @@
 </div>
 <table class="table table-sm">
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('id')"><u>Id</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('product.name')"><u>Product</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('quantity')"><u>Quantity</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('price')"><u>Price</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('lineTotal')"><u>Line Total</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" ><u>Action</u></a></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Id</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Product</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Quantity</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Price</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Line Total</u></th>
+    <th class="table-secondary btn-link font-weight-bold"><u>Action</u></th>
   </tr>
-  <tr *ngFor='let prli of purchaseRequestLineItems | sort:sortCriteria:sortOrder'>
+  <tr *ngFor='let prli of prlis'>
     <td>{{prli.id}}</td>
     <td>{{prli.product.name}}</td>
     <td>{{prli.quantity}}</td>
     <td>{{prli.product.price}}</td>
-    <td>{{lineTotal}}</td>
+    <td>lineTotal</td>
     <td class='actions'>
       <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
       <a routerLink='/purchaserequestlineitem/detail/{{prli.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
@@ -55,6 +55,3 @@
   <button (click)='submit-review()' class='btn btn-primary'>Submit for Review</button>
 </div>
 
-<p>
-  purchase-request-lines works!
-</p>

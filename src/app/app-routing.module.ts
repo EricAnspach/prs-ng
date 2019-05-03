@@ -55,11 +55,9 @@ const routes: Routes = [
   {path:'purchaserequest/review', component: PurchaseRequestReviewComponent},
   {path:'purchaserequest/lines/:id', component: PurchaseRequestLinesComponent},
   
-  // {path:'purchaserequestlineitem/list', component: PurchaseRequestLineItemListComponent},
   {path:'purchaserequestlineitem/create', component: PurchaseRequestLineItemCreateComponent},
   {path:'purchaserequestlineitem/edit/:id', component: PurchaseRequestLineItemEditComponent},
-  // {path:'purchaserequestlineitem/detail/:id', component: PurchaseRequestLineItemDetailComponent},
-  // {path:'purchaserequestlineitem/remove/:id', component: PurchaseRequestLineItemDetailComponent},
+  // for delete function {path:'purchaserequestlineitem/delete/:id/:del', component: PurchaseRequestLineItemEditComponent},
   
   {path:'**', component: UserListComponent}
   ];
