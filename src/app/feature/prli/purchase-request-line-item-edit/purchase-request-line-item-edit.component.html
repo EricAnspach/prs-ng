@@ -9,9 +9,10 @@
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="product">Product:</label>
 			<div class=' col-sm-6'>
-					<select [(ngModel)]='purchaseRequestLineItem.product' class='form-control' name='Product' id='product'>
-						<option *ngFor="let product of products" [ngValue]="product.name"
-						[selected]="product.name == purchaseRequestLineItem.product.name">{{product.name}}</option>
+					<select [(ngModel)]='purchaseRequestLineItem.product.id' class='form-control'
+						name='Product' id='product'>
+						<option *ngFor="let product of products" [ngValue]="product.id"
+						[selected]="product.id == purchaseRequestLineItem.product.id">{{product.name}}</option>
 					</select>
 				</div>
 		</div>
