@@ -1,3 +1,4 @@
+import { SystemService } from './../../../service/system.service';
 import { User } from './../../../model/user.class';
 import { PurchaseRequestService } from './../../../service/purchase-request.service';
 import { PurchaseRequest } from './../../../model/purchase-request.class';
@@ -13,6 +14,8 @@ export class PurchaseRequestCreateComponent implements OnInit {
 
   title: string = "Purchase Request Create";
   resp: any;
+  user: User;
+  username: string = this.sysSvc.data.user.instance.username;
   purchaserequest: PurchaseRequest = new PurchaseRequest(0, new User(), '','','','','',0,'','');
  
   create () {
@@ -24,9 +27,11 @@ export class PurchaseRequestCreateComponent implements OnInit {
   }
  
   constructor(private purchaseRequestSvc: PurchaseRequestService,
-    private router: Router) { }
+    private router: Router,
+    private sysSvc: SystemService) { }
  
   ngOnInit() {
+    console.log("purchaserequest username ngOnInit", "name = " + this.username);
   }
 
 }

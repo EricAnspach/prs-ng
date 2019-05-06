@@ -2,6 +2,7 @@
 <div id='component'>
   <div id = "pagetitle">
 	<span>[{{title}}]</span>
+	<span><a routerLink='/purchaserequest/list'>Back to List</a></span>
   </div>
   <p *ngIf='!purchaserequest'>Loading...</p>
 
@@ -9,8 +10,9 @@
 		<!-- User Name should display logged in user, not input -->
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="prusername">User name:</label>
-      <input [(ngModel)]='purchaserequest.user.username' name = 'UserName' type="text" class="form-control col-sm-6"
-        id="prusername" aria-describedby="unameHelp" placeholder="User Name">
+      <!-- <input [(ngModel)]='purchaserequest.user.username' name = 'UserName' type="text" class="form-control col-sm-6"
+				id="prusername" aria-describedby="unameHelp" placeholder="User Name"> -->
+			<span>{{ username }}</span>
 			<small id="unameHelp" class="form-text text-muted col-sm-2">Purchase Request User Name</small>
 		</div>
 		<div class="form-group row">
@@ -34,8 +36,11 @@
 		<!-- Delivery Mode should be a dropdown - Mail or Pickup -->
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="deliveryMode">Delivery Mode:</label>
-      <input [(ngModel)]='purchaserequest.deliveryMode' name = 'DeliveryMode' type="text" class="form-control col-sm-6"
-        id="deliveryMode" aria-describedby="deliveryModeHelp" placeholder="Delivery Mode">
+			<select [(ngModel)]='purchaserequest.deliveryMode' name = 'DeliveryMode' type="text"
+				class="form-control col-sm-6" id="deliveryMode">
+				<option value="Mail">Mail</option>
+				<option value="Pickup">Pickup</option>
+			</select>
 			<small id="deliveryModeHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
 		</div>
     <div class='form-group'>
