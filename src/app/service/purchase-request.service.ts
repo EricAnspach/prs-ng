@@ -40,8 +40,14 @@ export class PurchaseRequestService {
   submitreview(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
     return this.http.put(url + "submit-review", purchaseRequest) as Observable<JsonResponse>;
   }
+  
+  approve(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url + "approve", purchaseRequest) as Observable<JsonResponse>;
+  }
 
-  // get purchase requests to review, but not belonging to reviewer
+  reject(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url + "reject", purchaseRequest) as Observable<JsonResponse>;
+  }
 
   constructor(private http: HttpClient) { }
 }

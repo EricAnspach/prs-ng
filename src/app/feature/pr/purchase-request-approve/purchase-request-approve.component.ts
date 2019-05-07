@@ -1,3 +1,5 @@
+import { SystemService } from './../../../service/system.service';
+import { User } from './../../../model/user.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PurchaseRequestLineItemService } from './../../../service/purchase-request-line-item.service';
 import { PurchaseRequestLineItem } from './../../../model/purchase-request-line-item.class';
@@ -5,6 +7,7 @@ import { PurchaseRequestService } from './../../../service/purchase-request.serv
 import { PurchaseRequest } from './../../../model/purchase-request.class';
 import { JsonResponse } from './../../../model/json-response.class';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-purchase-request-approve',
@@ -43,5 +46,19 @@ export class PurchaseRequestApproveComponent implements OnInit {
         this.prlis = this.jr.data as PurchaseRequestLineItem[];
         console.log(this.prlis);
       });
+  }
+
+  approve() {
+    this.purchaseRequestSvc.approve(this.purchaserequest).subscribe(jr => {
+      this.purchaserequest = jr.data as PurchaseRequest;
+      this.router.navigate(['purchaserequest/list']);
+    });
+  }
+
+  reject() {
+    this.purchaseRequestSvc.reject(this.purchaserequest).subscribe(jr => {
+      this.purchaserequest = jr.data as PurchaseRequest;
+      this.router.navigate(['purchaserequest/list']);
+    });
   }
 }

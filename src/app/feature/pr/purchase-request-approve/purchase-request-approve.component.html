@@ -35,17 +35,18 @@
     <th class="table-secondary btn-link font-weight-bold"><u>Quantity</u></th>
     <th class="table-secondary btn-link font-weight-bold"><u>Price</u></th>
     <th class="table-secondary btn-link font-weight-bold"><u>Line Total</u></th>
-    <th class="table-secondary btn-link font-weight-bold"><u>Action</u></th>
   </tr>
   <tr *ngFor='let prli of prlis'>
     <td>{{prli.id}}</td>
     <td>{{prli.product.name}}</td>
     <td>{{prli.quantity}}</td>
     <td>{{prli.product.price}}</td>
-    <td>lineTotal</td>
-    <td class='actions'>
-      <a routerLink='/purchaserequestlineitem/detail/{{prli.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
-      <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
-    </td>
+    <td>{{(prli.product.price) * (prli.quantity)}}</td>
   </tr> 
+  <div class='form-group'>
+    <button (click)='approve()' class='btn btn-primary'>Approve</button>
+    <button (click)='reject()' class='btn btn-danger'>Reject</button>
+    <input [(ngModel)]='purchaserequest.reasonForRejection' name = 'PRReasonForRejection' type="text" class="form-control col-sm-6"
+        id="reasonForRejection" aria-describedby="reasonForRejectionHelp" placeholder="Reason For Rejection">
+  </div>
 </table>
