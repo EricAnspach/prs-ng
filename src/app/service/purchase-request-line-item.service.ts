@@ -15,9 +15,10 @@ export class PurchaseRequestLineItemService {
     return this.http.get(url) as Observable<JsonResponse>;
   }
 
-  create(purchaseRequestLineItem: PurchaseRequestLineItem): Observable<any> {
+  create(prli: PurchaseRequestLineItem): Observable<JsonResponse> {
     console.log("purchaseRequestLineItemsvc.create...");
-    return this.http.post(url, purchaseRequestLineItem) as Observable<any>;
+    console.log(prli);
+    return this.http.post(url, prli) as Observable<JsonResponse>;
   }
 
   get(id: string): Observable<JsonResponse> {

@@ -7,7 +7,7 @@ export class PurchaseRequestLineItem {
     product: Product;
     quantity: number;
 
-    constructor(id: number = 0, purchaseRequest: PurchaseRequest, product: Product, quantity: number = 0) {
+    constructor(id: number, purchaseRequest: PurchaseRequest, product: Product, quantity: number) {
              this.id = id;
              this.purchaseRequest = purchaseRequest;
              this.product = product;

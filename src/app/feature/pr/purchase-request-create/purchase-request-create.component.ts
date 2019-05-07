@@ -15,23 +15,24 @@ export class PurchaseRequestCreateComponent implements OnInit {
   title: string = "Purchase Request Create";
   resp: any;
   user: User;
-  username: string = this.sysSvc.data.user.instance.username;
-  purchaserequest: PurchaseRequest = new PurchaseRequest(0, new User(), '','','','','',0,'','');
- 
-  create () {
-    this.purchaseRequestSvc.create(this.purchaserequest)
-      .subscribe(resp => {
-        this.resp = resp;
-        this.router.navigate(['/purchaserequest/list']);
-    });
-  }
- 
+  purchaserequest: PurchaseRequest;
+  
+  
   constructor(private purchaseRequestSvc: PurchaseRequestService,
     private router: Router,
     private sysSvc: SystemService) { }
- 
-  ngOnInit() {
-    console.log("purchaserequest username ngOnInit", "name = " + this.username);
-  }
-
+    
+    ngOnInit() {
+      this.user = this.sysSvc.data.user.instance.userName;
+      this.purchaserequest = new PurchaseRequest(0, this.user, '','', new Date(),'','',0, new Date(),'');
+      console.log("ngOnInit PR Create - user: " + this.user);
+      // console.log("purchaserequest username ngOnInit", "name = " + this.username);
+    }
+    
+    create() {
+      this.purchaseRequestSvc.create(this.purchaserequest).subscribe(resp => {
+        this.purchaserequest = resp.data as PurchaseRequest;
+        this.router.navigate(['/purchaserequest/list']);
+      });
+    }
 }

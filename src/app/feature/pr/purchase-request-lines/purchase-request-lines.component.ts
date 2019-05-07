@@ -1,3 +1,5 @@
+import { SystemService } from './../../../service/system.service';
+import { User } from './../../../model/user.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PurchaseRequestLineItemService } from './../../../service/purchase-request-line-item.service';
 import { PurchaseRequestLineItem } from './../../../model/purchase-request-line-item.class';
@@ -16,20 +18,22 @@ export class PurchaseRequestLinesComponent implements OnInit {
   jr: JsonResponse;
   purchaserequest: PurchaseRequest;
   prlis: PurchaseRequestLineItem[];
-  title1: string = "Purchase Request Line Items";
-  title2: string = "Lines";
+  title: string = "Purchase Request Line Items";
+  linestitle: string = "Lines";
+  user: User;
 
   constructor(private purchaseRequestSvc: PurchaseRequestService,
               private prliSvc: PurchaseRequestLineItemService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private sysSvc: SystemService) { }
 
   // Put functionality for PRLI delete in ngOnInit method using params to differentiate
   // rendering the screen when an item is deleted
   ngOnInit() {
-    this.route.params
-      .subscribe(parms => {
-        let id = parms["id"];
+    this.user = this.sysSvc.data.user.instance;
+    this.route.params.subscribe(params => {
+        let id = params.id;
         this.get(id);
       });
   }
@@ -44,6 +48,13 @@ export class PurchaseRequestLinesComponent implements OnInit {
       this.jr = jresp2;
       this.prlis = this.jr.data as PurchaseRequestLineItem[];
       console.log(this.prlis);
+    });
+  }
+
+  submit() {
+    this.purchaseRequestSvc.submitreview(this.purchaserequest).subscribe(jr => {
+      this.purchaserequest = jr.data as PurchaseRequest;
+      this.router.navigate(['purchaserequest/list']);
     });
   }
 }

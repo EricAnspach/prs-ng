@@ -5,16 +5,16 @@ export class PurchaseRequest {
     user: User;
     description: string;
     justification: string;
-    dateNeeded: string;
+    dateNeeded: Date;
     deliveryMode: string;
     status: string;
     total: number;    
-    submittedDate: string;
+    submittedDate: Date;
     reasonForRejection: string;
 
     constructor(id: number = 0, user: User, description: string = '', justification: string = '',
-        dateNeeded: string = '', deliveryMode: string = '', status: string = '', total: number = 0,
-        submittedDate: string = '', reasonForRejection: string = '') {
+        dateNeeded: Date, deliveryMode: string = '', status: string = '', total: number = 0,
+        submittedDate: Date, reasonForRejection: string = '') {
              this.id = id;
              this.user = user;
              this.description = description;

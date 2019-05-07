@@ -19,9 +19,9 @@ export class PurchaseRequestService {
     return this.http.get(url + "list-review/" + id) as Observable<JsonResponse>;
   }
 
-  create(purchaseRequest: PurchaseRequest): Observable<any> {
+  create(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
     console.log("purchaseRequestsvc.create...");
-    return this.http.post(url, purchaseRequest) as Observable<any>;
+    return this.http.post(url + "submit-new", purchaseRequest) as Observable<JsonResponse>;
   }
 
   get(id: string): Observable<JsonResponse> {
@@ -29,12 +29,16 @@ export class PurchaseRequestService {
     return this.http.get(url+id) as Observable<JsonResponse>;
   }
 
-  edit(purchaseRequest: PurchaseRequest): Observable<any> {
-    return this.http.put(url, purchaseRequest) as Observable<any>;
+  edit(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.put(url, purchaseRequest) as Observable<JsonResponse>;
   }
-
+  
   delete(id: number): Observable<JsonResponse> {
     return this.http.delete(url+id) as Observable<JsonResponse>;
+  }
+  
+  submitreview(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.put(url + "submit-review", purchaseRequest) as Observable<JsonResponse>;
   }
 
   // get purchase requests to review, but not belonging to reviewer

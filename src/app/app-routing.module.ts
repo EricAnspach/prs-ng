@@ -55,7 +55,7 @@ const routes: Routes = [
   {path:'purchaserequest/review', component: PurchaseRequestReviewComponent},
   {path:'purchaserequest/lines/:id', component: PurchaseRequestLinesComponent},
   
-  {path:'purchaserequestlineitem/create', component: PurchaseRequestLineItemCreateComponent},
+  {path:'purchaserequestlineitem/create/:id', component: PurchaseRequestLineItemCreateComponent},
   {path:'purchaserequestlineitem/edit/:id', component: PurchaseRequestLineItemEditComponent},
   // for delete function {path:'purchaserequestlineitem/delete/:id/:del', component: PurchaseRequestLineItemEditComponent},
   
