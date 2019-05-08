@@ -39,7 +39,7 @@
       <td>{{prli.product.name}}</td>
       <td>{{prli.quantity}}</td>
       <td>{{prli.product.price}}</td>
-      <td>lineTotal</td>
+      <td>{{(prli.product.price) * (prli.quantity)}}</td>
       <td class='actions'>
         <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
         <a routerLink='/purchaserequestlineitem/delete/{{prli.id}}'><img src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
