@@ -1,7 +1,8 @@
 <app-menu></app-menu>
 <div id='component'>
   <div id = "pagetitle">
-	<span>[{{title}}]</span>
+  <span>[{{title}}] </span>
+  <span><a routerLink='/product/list'>Back to Product List</a></span>
   </div>
   <p *ngIf='!product'>Loading...</p>
   <div *ngIf='product'>

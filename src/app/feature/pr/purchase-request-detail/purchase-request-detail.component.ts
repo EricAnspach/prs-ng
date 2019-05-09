@@ -35,6 +35,8 @@ export class PurchaseRequestDetailComponent implements OnInit {
       });
   }
   
+  // Have to edit function to delete PR that includes line items
+  // Need to cycle through line items and delete until PR is empty
   remove(): void {
     this.purchaseRequestSvc.delete(this.purchaserequest.id)
       .subscribe(res => {

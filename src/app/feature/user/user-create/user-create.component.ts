@@ -11,13 +11,14 @@ import { UserService } from '../../../service/user.service';
 export class UserCreateComponent implements OnInit {
  title: string = "User Create";
  resp: any;
- user: User = new User(0,'','','','','','',false,false);
+ user: User = new User(0,'','','','','','',false,false,false);
 
  create () {
    this.userSvc.create(this.user)
      .subscribe(resp => {
        this.resp = resp;
        this.router.navigate(['/user/list']);
+       console.log(this.user);
    });
  }
 

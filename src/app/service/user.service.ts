@@ -20,9 +20,9 @@ export class UserService {
     return this.http.get(url) as Observable<JsonResponse>;
   }
 
-  create(user: User): Observable<any> {
+  create(user: User): Observable<JsonResponse> {
     console.log("usersvc.create...");
-    return this.http.post(url, user) as Observable<any>;
+    return this.http.post(url, user) as Observable<JsonResponse>;
   }
 
   get(id: string): Observable<JsonResponse> {

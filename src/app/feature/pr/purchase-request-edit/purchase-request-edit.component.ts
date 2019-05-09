@@ -19,14 +19,14 @@ export class PurchaseRequestEditComponent implements OnInit {
 
   purchaserequest: PurchaseRequest;
 
-  constructor(private purchaserequestSvc: PurchaseRequestService,
+  constructor(private purchaseRequestSvc: PurchaseRequestService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(parms => this.id = parms['id']);
     console.log("purchaserequest edit ngOnInit", "id = " + this.id);
-    this.purchaserequestSvc.get(this.id)
+    this.purchaseRequestSvc.get(this.id)
       .subscribe(jrresp => {
         this.jr = jrresp;
         console.log("1");
@@ -36,11 +36,20 @@ export class PurchaseRequestEditComponent implements OnInit {
   }
 
   edit () {
-    this.purchaserequestSvc.edit(this.purchaserequest)
+    this.purchaseRequestSvc.edit(this.purchaserequest)
       .subscribe(resp => {
         this.resp = resp;
         this.router.navigate(['/purchaserequest/list']);
     });
+  }
+
+    // Have to edit function to delete PR that includes line items
+  // Need to cycle through line items and delete until PR is empty
+  remove(): void {
+    this.purchaseRequestSvc.delete(this.purchaserequest.id)
+      .subscribe(res => {
+        this.router.navigateByUrl("/purchaserequest/list");
+      });
   }
 
 }

@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div class='component-content'>
 	<div>
-		<span class='component-title'>[{{title}}]</span>
+		<span class='component-title'>[{{title}}] </span>
 		<span><a routerLink='/purchaserequest/list'>Back to List</a></span>
 	</div>
 	<p *ngIf='!purchaserequest'>Loading...</p>
@@ -10,13 +10,10 @@
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="purchaserequestid">ID:</label>
 			<span>{{ purchaserequest.id }}</span>
-			<small id="idHelp" class="form-text text-muted col-sm-2">Purchase Request ID</small>
 		</div>
-		<!-- Formatting needed for display -->
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="purchaserequestusername">User name:</label>
 			<span>{{ purchaserequest.user.userName }}</span>
-			<small id="unameHelp" class="form-text text-muted col-sm-2">Purchase Request User Name</small>
 		</div>
 		<div class="form-group row">
 			<label class='col-form-label col-sm-2' for="purchaserequestdescription">Description:</label>
@@ -49,15 +46,7 @@
 	<!-- Display total, not input -->
 	<div class="form-group row">
 		<label class='col-form-label col-sm-2' for="total">Total:</label>
-		<input [(ngModel)]='purchaserequest.total' name = 'Total' type="text" class="form-control col-sm-6"
-		id="total" aria-describedby="totalHelp" placeholder="Total">
-		<small id="totalHelp" class="form-text text-muted col-sm-2">Total</small>
-	</div>
-	<!-- Display submitted date without time -->
-	<div class="form-group row">
-		<label class='col-form-label col-sm-2' for="submittedDate">Submitted Date:</label>
-		<span>{{ purchaserequest.submittedDate }}</span>
-		<small id="submittedDateHelp" class="form-text text-muted col-sm-2">Submitted Date</small>
+		<span>{{ purchaserequest.total }}</span>
 	</div>
 	<div class='form-group'>
 		<button (click)='edit()' class='btn btn-primary'>Update</button>

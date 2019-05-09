@@ -46,6 +46,7 @@ export class PurchaseRequestLineItemEditComponent implements OnInit {
     this.prliSvc.edit(this.purchaseRequestLineItem)
       .subscribe(resp => {
         this.resp = resp;
+        // Need to route back to the current PR
         this.router.navigate(['/purchaseRequest/lines']);
     });
   }
