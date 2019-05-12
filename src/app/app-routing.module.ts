@@ -2,7 +2,6 @@ import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lin
 import { PurchaseRequestApproveComponent } from './feature/pr/purchase-request-approve/purchase-request-approve.component';
 import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
 import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-request-line-item-create/purchase-request-line-item-create.component';
-import { PurchaseRequestLineItemListComponent } from './feature/prli/purchase-request-line-item-list/purchase-request-line-item-list.component';
 import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
 import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
 import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
@@ -22,11 +21,10 @@ import { ProductEditComponent } from './feature/product/product-edit/product-edi
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
 import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
-import { PurchaseRequestLineItemDetailComponent } from './feature/prli/purchase-request-line-item-detail/purchase-request-line-item-detail.component';
 import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: '/user/list', pathMatch: 'full' },
+  {path:'', redirectTo: '/user/login', pathMatch: 'full' },
   {path:'user/login', component: UserLoginComponent},
   {path:'user/list', component: UserListComponent},
   {path:'user/create', component: UserCreateComponent},

@@ -1,3 +1,5 @@
+import { SystemService } from './../../../service/system.service';
+import { User } from './../../../model/user.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { JsonResponse } from './../../../model/json-response.class';
 import { VendorService } from './../../../service/vendor.service';
@@ -13,10 +15,12 @@ export class VendorDetailComponent implements OnInit {
   title: string = "Vendor Detail";
   jr: JsonResponse;
   vendor: Vendor;
+  user: User;
 
   constructor(private vendorSvc: VendorService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private sysSvc: SystemService) { }
 
   ngOnInit() {
     this.route.params
@@ -24,6 +28,7 @@ export class VendorDetailComponent implements OnInit {
         let id = parms["id"];
         this.getVendorById(id);
       });
+      this.user = this.sysSvc.data.user.instance;
   }
 
   getVendorById(id: string) {

@@ -30,8 +30,8 @@
     </tr>
     <tr>
 	    <td colspan="2">
-	      <a routerLink='/product/edit/{{product.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-	      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+	      <a *ngIf='user.admin' routerLink='/product/edit/{{product.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+	      <button *ngIf='user.admin' (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
 	    </td>
     </tr>
   </table>

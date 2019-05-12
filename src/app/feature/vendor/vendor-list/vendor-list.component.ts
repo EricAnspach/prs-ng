@@ -1,3 +1,5 @@
+import { SystemService } from './../../../service/system.service';
+import { User } from './../../../model/user.class';
 import { VendorService } from './../../../service/vendor.service';
 import { JsonResponse } from './../../../model/json-response.class';
 import { Vendor } from './../../../model/vendor.class';
@@ -13,8 +15,10 @@ export class VendorListComponent implements OnInit {
   jr: JsonResponse;
   vendors: Vendor[];
   title: string = "Vendor List";
+  user: User;
 
-  constructor(private vendorSvc: VendorService) { }
+  constructor(private vendorSvc: VendorService,
+              private sysSvc: SystemService) { }
 
   ngOnInit() {
     this.vendorSvc.list().subscribe(jresp => {
@@ -22,6 +26,7 @@ export class VendorListComponent implements OnInit {
         this.vendors = this.jr.data as Vendor[];
         console.log(this.vendors);
       });
+    this.user = this.sysSvc.data.user.instance;
   }
 
 }

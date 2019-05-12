@@ -1,3 +1,5 @@
+import { SystemService } from './../../../service/system.service';
+import { User } from './../../../model/user.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { JsonResponse } from './../../../model/json-response.class';
 import { ProductService } from './../../../service/product.service';
@@ -14,10 +16,12 @@ export class ProductDetailComponent implements OnInit {
   title: string = "Product Detail";
   jr: JsonResponse;
   product: Product;
+  user: User;
 
   constructor(private productSvc: ProductService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private sysSvc: SystemService) { }
 
   ngOnInit() {
     this.route.params
@@ -25,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
         let id = parms["id"];
         this.getProductById(id);
       });
+    this.user = this.sysSvc.data.user.instance;
   }
 
   getProductById(id: string) {

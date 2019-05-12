@@ -1,3 +1,5 @@
+import { SystemService } from './../../../service/system.service';
+import { User } from './../../../model/user.class';
 import { Product } from './../../../model/product.class';
 import { ProductService } from './../../../service/product.service';
 import { JsonResponse } from './../../../model/json-response.class';
@@ -14,8 +16,10 @@ export class ProductListComponent implements OnInit {
   title: string = "Product List";
   sortCriteria: string = "name";
   sortOrder: string = "asc"; // ascending -- or can use descending
+  user: User;
 
-  constructor(private productSvc: ProductService) { }
+  constructor(private productSvc: ProductService,
+              private sysSvc: SystemService) { }
 
   ngOnInit() {
     this.productSvc.list().subscribe(jresp => {
@@ -23,6 +27,7 @@ export class ProductListComponent implements OnInit {
         this.products = this.jr.data as Product[];
         console.log(this.products);
       });
+      this.user = this.sysSvc.data.user.instance;
   }
 
   sortBy(column: string): void {
