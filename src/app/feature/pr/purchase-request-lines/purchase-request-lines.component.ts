@@ -57,4 +57,14 @@ export class PurchaseRequestLinesComponent implements OnInit {
       this.router.navigate(['purchaserequest/list']);
     });
   }
+
+  remove(prli:PurchaseRequestLineItem, index:number) {
+    this.purchaserequest.total -= (prli.quantity * prli.product.price);
+    this.prliSvc.delete(prli.id).subscribe();
+    this.prlis.splice(index, 1);
+    this.prlis;
+  }
 }
+
+
+

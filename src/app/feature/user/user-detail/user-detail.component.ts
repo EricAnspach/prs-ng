@@ -1,3 +1,4 @@
+import { SystemService } from './../../../service/system.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../service/user.service';
@@ -13,12 +14,15 @@ export class UserDetailComponent implements OnInit {
   title: string = "User Detail";
   jr: JsonResponse;
   user: User;
+  loggedInUser: User;
 
   constructor(private userSvc: UserService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private sysSvc: SystemService) { }
 
   ngOnInit() {
+    this.loggedInUser = this.sysSvc.data.user.instance;
     this.route.params
       .subscribe(parms => {
         let id = parms["id"];

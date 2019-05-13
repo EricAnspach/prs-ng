@@ -1,3 +1,4 @@
+import { SystemService } from './../../../service/system.service';
 import { User } from './../../../model/user.class';
 import { JsonResponse } from './../../../model/json-response.class';
 import { UserService } from './../../../service/user.service';
@@ -14,15 +15,18 @@ export class UserListComponent implements OnInit {
   title: string = "User List";
   sortCriteria: string = "userName";
   sortOrder: string = "asc"; // ascending -- or can use descending
+  loggedInUser: User;
 
-  constructor(private userSvc: UserService) { }
+  constructor(private userSvc: UserService,
+              private sysSvs: SystemService) { }
 
   ngOnInit() {
+    this.loggedInUser = this.sysSvs.data.user.instance;
     this.userSvc.list().subscribe(jresp => {
-        this.jr = jresp;
-        this.users = this.jr.data as User[];
-        console.log(this.users);
-      });
+      this.jr = jresp;
+      this.users = this.jr.data as User[];
+      console.log(this.users);
+    });
   }
 
   sortBy(column: string): void {

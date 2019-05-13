@@ -34,18 +34,17 @@
       <th class="table-secondary btn-link font-weight-bold"><u>Line Total</u></th>
       <th class="table-secondary btn-link font-weight-bold"><u>Action</u></th>
     </tr>
-    <tr *ngFor='let prli of prlis'>
+    <tr *ngFor='let prli of prlis; let i = index'>
       <td>{{prli.id}}</td>
       <td>{{prli.product.name}}</td>
       <td>{{prli.quantity}}</td>
       <td>{{prli.product.price}}</td>
       <td>{{(prli.product.price) * (prli.quantity)}}</td>
       <td class='actions'>
-        <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
-        <!-- need to complete the delete PRLI function 
-        Need to pass id of prli and pr -->
-        <a routerLink='/purchaserequestlineitem/delete/{{prli.id}}'><img src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
-        <!-- <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button> -->
+        <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'>
+          <img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+        <input type="image" src='assets/delete.jpg' width='20' height='20' title='Delete'
+          (click)="remove(prli, i)"/>
       </td>
     </tr> 
   </table>

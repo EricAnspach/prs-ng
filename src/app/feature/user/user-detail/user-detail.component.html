@@ -8,7 +8,7 @@
 	</div>
   <table class="table table-sm" *ngIf='user'>
     <tr>
-      <td>Id</td><td>{{ user.id}}</td>
+      <td>Id</td><td>{{ user.id }}</td>
     </tr>
     <tr>
       <td>User Name</td><td>{{ user.userName }}</td>
@@ -26,15 +26,15 @@
       <td>Email</td><td>{{ user.email }}</td>
     </tr>
     <tr>
-      <td>Admin</td><td>{{ user.isAdmin }}</td>
+      <td>Admin</td><td>{{ user.admin }}</td>
     </tr>
     <tr>
-      <td>Reviewer</td><td>{{ user.isReviewer }}</td>
+      <td>Reviewer</td><td>{{ user.reviewer }}</td>
     </tr>
     <tr>
 	    <td colspan="2">
-	      <a routerLink='/user/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-	      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+	      <a *ngIf='loggedInUser.admin' routerLink='/user/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+	      <button *ngIf='loggedInUser.admin' (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
 	    </td>
     </tr>
   </table>
