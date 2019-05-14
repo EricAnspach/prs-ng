@@ -28,8 +28,6 @@ export class PurchaseRequestLinesComponent implements OnInit {
               private route: ActivatedRoute,
               private sysSvc: SystemService) { }
 
-  // Put functionality for PRLI delete in ngOnInit method using params to differentiate
-  // rendering the screen when an item is deleted
   ngOnInit() {
     this.user = this.sysSvc.data.user.instance;
     this.route.params.subscribe(params => {
