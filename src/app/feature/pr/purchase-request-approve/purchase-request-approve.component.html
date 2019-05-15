@@ -28,25 +28,27 @@
     <span class='component-title'>[{{title2}}] </span>
   </div>
 </div>
-<table class="table table-sm">
-  <tr>
-    <th class="table-secondary btn-link font-weight-bold"><u>Id</u></th>
-    <th class="table-secondary btn-link font-weight-bold"><u>Product</u></th>
-    <th class="table-secondary btn-link font-weight-bold"><u>Quantity</u></th>
-    <th class="table-secondary btn-link font-weight-bold"><u>Price</u></th>
-    <th class="table-secondary btn-link font-weight-bold"><u>Line Total</u></th>
-  </tr>
-  <tr *ngFor='let prli of prlis'>
-    <td>{{prli.id}}</td>
-    <td>{{prli.product.name}}</td>
-    <td>{{prli.quantity}}</td>
-    <td>{{prli.product.price}}</td>
-    <td>{{(prli.product.price) * (prli.quantity)}}</td>
-  </tr> 
-  <div class='form-group'>
-    <button (click)='approve()' class='btn btn-primary'>Approve</button>
-    <button (click)='reject()' class='btn btn-danger'>Reject</button>
-    <input [(ngModel)]='purchaserequest.reasonForRejection' name = 'PRReasonForRejection' type="text" class="form-control col-sm-6"
-        id="reasonForRejection" aria-describedby="reasonForRejectionHelp" placeholder="Reason For Rejection">
-  </div>
-</table>
+<div>
+  <table class="table table-sm">
+    <tr>
+      <th class="table-secondary btn-link font-weight-bold"><u>Id</u></th>
+      <th class="table-secondary btn-link font-weight-bold"><u>Product</u></th>
+      <th class="table-secondary btn-link font-weight-bold"><u>Quantity</u></th>
+      <th class="table-secondary btn-link font-weight-bold"><u>Price</u></th>
+      <th class="table-secondary btn-link font-weight-bold"><u>Line Total</u></th>
+    </tr>
+    <tr *ngFor='let prli of prlis'>
+      <td>{{prli.id}}</td>
+      <td>{{prli.product.name}}</td>
+      <td>{{prli.quantity}}</td>
+      <td>{{prli.product.price}}</td>
+      <td>{{(prli.product.price) * (prli.quantity)}}</td>
+    </tr> 
+  </table>
+    <div class='form-group'>
+      <button (click)='approve()' class='btn btn-primary'>Approve</button>
+      <button *ngIf='purchaserequest.reasonForRejection !=""' (click)='reject()' class='btn btn-danger'>Reject</button>
+      <input [(ngModel)]='purchaserequest.reasonForRejection' name='PRReasonForRejection' type="text" class="form-control col-sm-6"
+      id="reasonForRejection" aria-describedby="reasonForRejectionHelp" placeholder="Reason For Rejection">
+    </div>
+</div>
