@@ -10,7 +10,6 @@
 <p *ngIf='!purchaserequests'>Loading ...</p>
 <table class="table table-sm" *ngIf='purchaserequests'>
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"><u>Id</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('User')"><u>User Name</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Description')"><u>Description</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Justification')"><u>Justification</u></a></th>
@@ -23,7 +22,6 @@
     <th class="table-secondary" width='90'>Action</th>
   </tr>
   <tr *ngFor='let purchaserequest of purchaserequests'>
-    <td>{{purchaserequest.id}}</td>
     <td>{{purchaserequest.user.userName}}</td>
     <td>{{purchaserequest.description}}</td>
     <td>{{purchaserequest.justification}}</td>

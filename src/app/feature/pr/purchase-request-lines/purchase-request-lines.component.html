@@ -6,13 +6,11 @@
   </div>
   <table class="table table-sm">
     <tr>
-      <th class="table-secondary btn-link font-weight-bold"><u>Id</u></th>
       <th class="table-secondary btn-link font-weight-bold"><u>Description</u></th>
       <th class="table-secondary btn-link font-weight-bold"><u>Status</u></th>
       <th class="table-secondary btn-link font-weight-bold"><u>Total</u></th>
     </tr>
     <tr>
-      <td>{{purchaserequest.id}}</td>
       <td>{{purchaserequest.description}}</td>
       <td>{{purchaserequest.status}}</td>
       <td>{{purchaserequest.total}}</td>
@@ -27,7 +25,6 @@
     </div>
   <table class="table table-sm">
     <tr>
-      <th class="table-secondary btn-link font-weight-bold"><u>Id</u></th>
       <th class="table-secondary btn-link font-weight-bold"><u>Product</u></th>
       <th class="table-secondary btn-link font-weight-bold"><u>Quantity</u></th>
       <th class="table-secondary btn-link font-weight-bold"><u>Price</u></th>
@@ -35,7 +32,6 @@
       <th class="table-secondary btn-link font-weight-bold"><u>Action</u></th>
     </tr>
     <tr *ngFor='let prli of prlis; let i = index'>
-      <td>{{prli.id}}</td>
       <td>{{prli.product.name}}</td>
       <td>{{prli.quantity}}</td>
       <td>{{prli.product.price}}</td>

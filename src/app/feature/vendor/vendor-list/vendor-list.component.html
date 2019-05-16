@@ -10,7 +10,6 @@
 <p *ngIf='!vendors'>Loading ...</p>
 <table class="table table-sm" *ngIf='vendors'>
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"><u>Id</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Code')"><u>Code</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Name')"><u>Name</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('PhoneNumber')"><u>Phone</u></a></th>
@@ -19,7 +18,6 @@
     <th class="table-secondary">Action</th>
   </tr>
   <tr *ngFor='let vendor of vendors'>
-    <td>{{vendor.id}}</td>
     <td>{{vendor.code}}</td>
     <td>{{vendor.name}}</td>
     <td>{{vendor.phoneNumber}}</td>
