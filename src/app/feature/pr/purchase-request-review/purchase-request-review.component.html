@@ -19,7 +19,7 @@
     <td>{{purchaserequest.user.userName}}</td>
     <td>{{purchaserequest.description}}</td>
     <td>{{purchaserequest.status}}</td>
-    <td>{{purchaserequest.total}}</td>
+    <td>{{purchaserequest.total | currency}}</td>
     <td class='actions'>
       <a routerLink='/purchaserequest/approve/{{purchaserequest.id}}'><img src='assets/review.png' width='20' height='20' title='Detail'></a>
     </td>

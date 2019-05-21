@@ -13,7 +13,7 @@
     <tr>
       <td>{{purchaserequest.description}}</td>
       <td>{{purchaserequest.status}}</td>
-      <td>{{purchaserequest.total}}</td>
+      <td>{{purchaserequest.total | currency}}</td>
     </tr> 
   </table>
   
@@ -34,8 +34,8 @@
     <tr *ngFor='let prli of prlis; let i = index'>
       <td>{{prli.product.name}}</td>
       <td>{{prli.quantity}}</td>
-      <td>{{prli.product.price}}</td>
-      <td>{{(prli.product.price) * (prli.quantity)}}</td>
+      <td>{{prli.product.price | currency}}</td>
+      <td>{{(prli.product.price) * (prli.quantity) | currency}}</td>
       <td class='actions'>
         <a routerLink='/purchaserequestlineitem/edit/{{prli.id}}'>
           <img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>

@@ -20,7 +20,7 @@
       <td>Justification</td><td>{{ purchaserequest.justification }}</td>
     </tr>
     <tr>
-      <td>Date Needed</td><td>{{ purchaserequest.dateNeeded }}</td>
+      <td>Date Needed</td><td>{{ purchaserequest.dateNeeded | date:'shortDate'}}</td>
     </tr>
     <tr>
       <td>Delivery Mode</td><td>{{ purchaserequest.deliveryMode }}</td>
@@ -29,10 +29,10 @@
       <td>Status</td><td>{{ purchaserequest.status }}</td>
     </tr>
     <tr>
-      <td>Total</td><td>{{ purchaserequest.total }}</td>
+      <td>Total</td><td>{{ purchaserequest.total | currency }}</td>
     </tr>
     <tr>
-      <td>Submitted Date</td><td>{{ purchaserequest.submittedDate }}</td>
+      <td>Submitted Date</td><td>{{ purchaserequest.submittedDate | date:'shortDate' }}</td>
     </tr>
     <tr>
       <td>Reason for Rejection</td><td>{{ purchaserequest.reasonForRejection }}</td>

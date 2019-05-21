@@ -25,11 +25,11 @@
     <td>{{purchaserequest.user.userName}}</td>
     <td>{{purchaserequest.description}}</td>
     <td>{{purchaserequest.justification}}</td>
-    <td>{{purchaserequest.dateNeeded}}</td>
+    <td>{{purchaserequest.dateNeeded | date:'shortDate'}}</td>
     <td>{{purchaserequest.deliveryMode}}</td>
     <td>{{purchaserequest.status}}</td>
-    <td>{{purchaserequest.total}}</td>
-    <td>{{purchaserequest.submittedDate}}</td>
+    <td>{{purchaserequest.total | currency}}</td>
+    <td>{{purchaserequest.submittedDate | date:'shortDate'}}</td>
     <td>{{purchaserequest.reasonForRejection}}</td>
     <td class='actions'>
       <a routerLink='/purchaserequest/detail/{{purchaserequest.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
